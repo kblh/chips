@@ -1,0 +1,4 @@
+{
+  "layout": "event.njk",
+  "permalink": "/archiv/{{ page.fileSlug }}/"
+}

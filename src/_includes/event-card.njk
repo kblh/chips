@@ -1,0 +1,7 @@
+<li class="event-card">
+  <a class="event-card__link" href="{{ ev.url }}">
+    <span class="event-card__date">{{ ev.date | datefmt }}</span>
+    <span class="event-card__title">{{ ev.data.title }}</span>
+    {% if ev.data.winner %}<span class="event-card__winner">🏆 {{ ev.data.winner }}</span>{% endif %}
+  </a>
+</li>

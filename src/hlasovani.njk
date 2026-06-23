@@ -1,0 +1,35 @@
+---
+layout: layout.njk
+title: Hlasování
+---
+{% set ev = collections.schedule.current %}
+<main class="page">
+  <section class="section">
+    <div class="section__inner">
+      <p class="eyebrow">Hlasování</p>
+      <h1>Hlasuj o nejlepší talk</h1>
+      {% if ev and ev.data.slido %}
+        <p>Naskenuj QR kód nebo otevři odkaz a vyber nejlepší příspěvek. Hlasování je anonymní.</p>
+        <div class="voting-qr">{% qr ev.data.slido %}</div>
+        <p><a class="cta" href="{{ ev.data.slido }}" target="_blank" rel="noopener">Otevřít hlasování →</a></p>
+        {% if ev.data.slidoWall %}
+          <h2>Živé výsledky</h2>
+          <div class="voting-results">
+            <iframe
+              src="{{ ev.data.slidoWall }}"
+              title="Živé výsledky hlasování (Slido)"
+              loading="lazy"
+              allow="fullscreen"
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        {% else %}
+          <p class="empty-state">Živé výsledky uvidíš na plátně (Slido).</p>
+        {% endif %}
+      {% elif ev %}
+        <p class="empty-state">Hlasování spustíme během eventu — zkontroluj tuto stránku, až začne.</p>
+      {% else %}
+        <p class="empty-state">Žádný event právě neběží. Mrkni do <a href="/archiv/">archivu</a>.</p>
+      {% endif %}
+    </div>
+  </section>
+</main>

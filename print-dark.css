@@ -1,0 +1,49 @@
+/* ===== Dark PDF export: A4 landscape, full-bleed #111111, one section per page =====
+   Used only when rendering the dark PDF (linked into a temporary dark copy of the
+   page). Loads AFTER styles.css so its @page + !important rules win over the light
+   print block. */
+@media print {
+  @page { size: A4 landscape; margin: 0; }
+
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+  /* Force the dark palette regardless of the light print overrides in styles.css */
+  :root[data-theme="dark"] {
+    --bg: #111111 !important; --bg-alt: #111111 !important;
+    --text: #FAEEDA !important; --muted: #BA7517 !important;
+    --accent: #FAC775 !important; --accent-2: #EF9F27 !important;
+    --border: #3A2A12 !important; --card-bg: #1E1A14 !important;
+    --logo-tri-fill: #BA7517 !important; --logo-tri-shadow: #412402 !important;
+    --logo-stroke: #EF9F27 !important; --logo-node: #1A0A00 !important;
+    --logo-node-core: #FAC775 !important;
+    --logo-text-1: #FAC775 !important; --logo-text-2: #EF9F27 !important;
+    --logo-text-3: #EF9F27 !important; --logo-claim: #BA7517 !important;
+    --logo-spark: #BA7517 !important;
+  }
+
+  /* Uniform #111111 across the whole sheet: page bg + transparent blocks */
+  html, body { background: #111111 !important; }
+  .hero, .section, .site-footer,
+  .section:nth-of-type(even) { background: transparent !important; }
+
+  /* Reveal everything and freeze animation to its final state */
+  .section { opacity: 1 !important; transform: none !important; }
+  .logo__chip, .logo__net, .logo__spark, .logo__mark, .logo__text {
+    animation: none !important; opacity: 1 !important; transform: none !important;
+  }
+  .theme-toggle { display: none !important; }
+
+  /* One block per landscape page; margin:0 page → padding moves inside the block */
+  .hero, .section, .site-footer {
+    break-after: page; page-break-after: always;
+    break-inside: avoid; page-break-inside: avoid;
+    box-sizing: border-box;
+    min-height: 100vh;
+    margin: 0;
+    padding: 14mm 24mm;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .site-footer { break-after: auto; page-break-after: auto; }
+}

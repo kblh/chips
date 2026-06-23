@@ -1,0 +1,38 @@
+---
+layout: layout.njk
+title: Program
+---
+{% set ev = collections.schedule.current %}
+<main class="page">
+  <section class="section">
+    <div class="section__inner">
+      <p class="eyebrow">Program</p>
+      {% if ev %}
+        <h1>{{ ev.data.title }}</h1>
+        <ul class="info-rows">
+          <li><span class="info-rows__icon" aria-hidden="true">🗓️</span> {{ ev.date | datefmt }}</li>
+          <li><span class="info-rows__icon" aria-hidden="true">📍</span> {{ ev.data.location }}</li>
+        </ul>
+        <ol class="program">
+          {% for slot in ev.data.slots %}
+            <li class="slot">
+              <span class="slot__time">{{ slot.time }}</span>
+              <span class="slot__body">
+                <span class="slot__title">{{ slot.title }}</span>
+                <span class="slot__meta">{{ slot.speaker }}{% if slot.role %} · {{ slot.role }}{% endif %}</span>
+              </span>
+            </li>
+          {% endfor %}
+        </ol>
+        {% if ev.data.slido %}
+          <p><a class="cta" href="/hlasovani/">Hlasuj o nejlepší talk →</a></p>
+        {% else %}
+          <p class="empty-state">Hlasování spustíme během eventu.</p>
+        {% endif %}
+      {% else %}
+        <h1>Další Tips &amp; Chips chystáme</h1>
+        <p class="empty-state">Termín dalšího eventu zveřejníme brzy. Zatím mrkni do <a href="/archiv/">archivu</a>.</p>
+      {% endif %}
+    </div>
+  </section>
+</main>

@@ -1,0 +1,21 @@
+---
+layout: layout.njk
+title: Archiv
+---
+<main class="page">
+  <section class="section">
+    <div class="section__inner">
+      <p class="eyebrow">Archiv</p>
+      <h1>Proběhlé eventy</h1>
+      {% if collections.schedule.past.length %}
+        <ul class="archive-list">
+          {% for ev in collections.schedule.past %}
+            {% include "event-card.njk" %}
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p class="empty-state">Zatím tu nic není — první event teprve přijde.</p>
+      {% endif %}
+    </div>
+  </section>
+</main>

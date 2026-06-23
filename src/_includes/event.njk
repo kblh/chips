@@ -1,0 +1,27 @@
+---
+layout: layout.njk
+---
+<main class="page">
+  <article class="section">
+    <div class="section__inner">
+      <p class="eyebrow">{{ date | datefmt }}{% if location %} · {{ location }}{% endif %}</p>
+      <h1>{{ title }}</h1>
+      {% if winner %}<p class="event-winner">🏆 Vítěz: <strong>{{ winner }}</strong></p>{% endif %}
+      {% if slots %}
+        <h2>Program</h2>
+        <ol class="program">
+          {% for slot in slots %}
+            <li class="slot">
+              <span class="slot__time">{{ slot.time }}</span>
+              <span class="slot__body">
+                <span class="slot__title">{{ slot.title }}</span>
+                <span class="slot__meta">{{ slot.speaker }}{% if slot.role %} · {{ slot.role }}{% endif %}</span>
+              </span>
+            </li>
+          {% endfor %}
+        </ol>
+      {% endif %}
+      {% if content %}<div class="event-recap">{{ content | safe }}</div>{% endif %}
+    </div>
+  </article>
+</main>

@@ -1,0 +1,12 @@
+<nav class="site-nav" aria-label="Hlavní navigace">
+  <a class="site-nav__brand" href="/">Tips &amp; Chips</a>
+  <ul class="site-nav__links">
+    <li><a href="/" class="{{ 'is-active' if page.url == '/' }}">Domů</a></li>
+    <li><a href="/program/" class="{{ 'is-active' if page.url == '/program/' }}">Program</a></li>
+    <li><a href="/prihlaska/" class="{{ 'is-active' if page.url == '/prihlaska/' }}">Přihláška</a></li>
+    <li><a href="/hlasovani/" class="{{ 'is-active' if page.url == '/hlasovani/' }}">Hlasování</a></li>
+    <li><a href="/archiv/" class="{{ 'is-active' if page.url.startsWith('/archiv') }}">Archiv</a></li>
+  </ul>
+  <button id="theme-toggle" class="theme-toggle" type="button" aria-pressed="false"
+    aria-label="Přepnout na tmavý režim">☾</button>
+</nav>

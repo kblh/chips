@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="cs" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title or "Tips & Chips" }} — Tips & Chips</title>
+  <meta name="description" content="{{ description or 'Tips & Chips — interní firemní event plný tipů, triků, hacků a novinek.' }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <!-- theme init runs before paint to avoid a flash of the wrong theme -->
+  <script src="/theme.js"></script>
+</head>
+<body>
+  {% include "nav.njk" %}
+  {{ content | safe }}
+  <footer class="site-footer">
+    <p class="site-footer__claim">TIPS · TRICKS · HACKS · NEWS</p>
+    <p class="site-footer__meta">Tips &amp; Chips</p>
+  </footer>
+</body>
+</html>
