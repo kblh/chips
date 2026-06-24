@@ -18,8 +18,9 @@ title: Program
             <li class="slot">
               <span class="slot__time">{{ slot.time }}</span>
               <span class="slot__body">
-                <span class="slot__title">{{ slot.title }}</span>
-                <span class="slot__meta">{{ slot.speaker }}{% if slot.role %} · {{ slot.role }}{% endif %}</span>
+                <span class="slot__meta">{{ slot.speaker }}{% if slot.role %} ({{ slot.role }}{% endif %})</span>
+                <h3 class="slot__title">{{ slot.title }}</h3>
+                {% if slot.description %}<span class="slot__description">{{ slot.description }}</span>{% endif %}
               </span>
             </li>
           {% endfor %}
