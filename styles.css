@@ -335,7 +335,6 @@ a { color: var(--accent-2); }
 .slot:last-child { border-bottom: none; }
 .slot__time { font-family: var(--font-display); color: var(--accent-2); min-width: 64px; }
 .slot__body { display: flex; flex-direction: column; }
-.slot__title { font-weight: 700; }
 .slot__meta { color: var(--muted); font-size: 14px; }
 .slot__description { margin-top: 4px; color: var(--muted); font-size: 14px; }
 .event-winner { color: var(--accent-2); }
