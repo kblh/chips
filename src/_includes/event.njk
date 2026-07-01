@@ -7,6 +7,11 @@ layout: layout.njk
       <p class="eyebrow">{{ date | datefmt }}{% if location %} · {{ location }}{% endif %}</p>
       <h1>{{ title }}</h1>
       {% if winner %}<p class="event-winner">🏆 Vítěz: <strong>{{ winner }}</strong></p>{% endif %}
+    </div>
+  </article>
+
+  <article class="section">
+    <div class="section__inner">
       {% if slots %}
         <h2>Program</h2>
         <ol class="program">
@@ -22,7 +27,12 @@ layout: layout.njk
           {% endfor %}
         </ol>
       {% endif %}
+    </div>
+  </article>
+  <article class="section">
+    <div class="section__inner">
       {% if content %}<div class="event-recap">{{ content | safe }}</div>{% endif %}
     </div>
   </article>
+
 </main>

@@ -6,6 +6,7 @@ export default function (eleventyConfig) {
     "styles.css": "styles.css",
     "theme.js": "theme.js",
     "print-dark.css": "print-dark.css",
+    "src/images": "images",
   });
 
   eleventyConfig.addCollection("schedule", (api) =>
