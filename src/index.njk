@@ -2,6 +2,7 @@
 layout: layout.njk
 title: Domů
 ---
+{% set ev = collections.schedule.current %}
 <header class="hero" id="hero">
   <div class="hero__inner">
     <svg class="logo" viewBox="0 0 680 520" role="img" aria-label="Tricks &amp; Chips logo">
@@ -45,6 +46,16 @@ title: Domů
     </svg>
   </div>
 </header>
+{% if ev %}
+  <section class="hero-banner" aria-labelledby="hero-banner-h">
+    <div class="hero-banner__inner">
+      <p class="eyebrow">Příští event</p>
+      <h2 id="hero-banner-h">{{ ev.data.title }}</h2>
+      <p class="hero-banner__meta">{{ ev.date | datefmt }} · {{ ev.data.location }}</p>
+      <p><a class="cta hero-banner__cta" href="/program/">Zobrazit program →</a></p>
+    </div>
+  </section>
+{% endif %}
 <main>
   <section class="section" id="o-eventu" aria-labelledby="o-eventu-h">
     <div class="section__inner">

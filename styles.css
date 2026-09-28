@@ -219,6 +219,29 @@ a { color: var(--accent-2); }
   }
 }
 
+/* Hero banner ("Příští event") */
+.hero-banner {
+  padding: 0 20px 56px;
+  text-align: center;
+}
+.hero-banner__inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 28px 24px;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: 0 0 0 4px var(--accent) inset;
+}
+.hero-banner .eyebrow { margin: 0 0 8px; }
+.hero-banner h2 {
+  font-size: clamp(24px, 4.5vw, 34px);
+  color: var(--accent-2);
+  margin: 0 0 12px;
+}
+.hero-banner__meta { color: var(--muted); margin: 0 0 16px; }
+.hero-banner__cta { font-size: 18px; }
+
 /* Info rows ("Kdy a kde") */
 .info-rows { list-style: none; padding: 0; margin: 0; }
 .info-rows li {
